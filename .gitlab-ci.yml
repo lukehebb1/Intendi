@@ -1,0 +1,33 @@
+stages:
+    - build
+    - frontendtest
+    - backendtest
+
+build:
+    stage: build
+    script:
+        - cd ./src/intendi
+        - echo "Building deploy package"
+        - npm install
+        - npm build
+        - echo "Build successful"
+frontendtest:
+    stage: frontendtest
+    image: node
+    script:
+      - cd ./src/intendi
+      - echo "Testing App"
+      - npm install
+      - CI=true npm test a
+      - echo "Test successfully!"
+
+backendtest:
+    stage: backendtest
+    image: python
+    script:
+      - cd ./src/intendi/backendTests
+      - echo "Testing Backend"
+      - pip install -U pytest
+      - pip install moto
+      - CI=true pytest
+      - echo "Test successfully!"

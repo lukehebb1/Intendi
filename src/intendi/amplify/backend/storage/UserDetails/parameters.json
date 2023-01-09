@@ -1,0 +1,5 @@
+{
+    "tableName": "UserDetails",
+    "partitionKeyName": "SubID",
+    "partitionKeyType": "S"
+}

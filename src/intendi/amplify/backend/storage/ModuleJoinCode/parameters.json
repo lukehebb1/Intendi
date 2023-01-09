@@ -1,0 +1,5 @@
+{
+    "tableName": "ModuleJoinCode",
+    "partitionKeyName": "ModuleCde",
+    "partitionKeyType": "S"
+}

@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "storage": {
+      "lecturevideos3": [
+        "read",
+        "delete"
+      ],
+      "VideoDetails": [
+        "read",
+        "delete"
+      ],
+      "UserDetails": [
+        "read",
+        "delete"
+      ],
+      "VideoAnalysisData": [
+        "read",
+        "delete"
+      ],
+      "VideoStudentWatchDetails": [
+        "read"
+      ]
+    }
+  },
+  "lambdaLayers": []
+}

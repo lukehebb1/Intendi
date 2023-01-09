@@ -1,0 +1,425 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "Lambda Function resource stack creation using Amplify CLI",
+  "Parameters": {
+    "CloudWatchRule": {
+      "Type": "String",
+      "Default": "NONE",
+      "Description": " Schedule Expression"
+    },
+    "deploymentBucketName": {
+      "Type": "String"
+    },
+    "env": {
+      "Type": "String"
+    },
+    "s3Key": {
+      "Type": "String"
+    },
+    "storagelecturevideos3BucketName": {
+      "Type": "String",
+      "Default": "storagelecturevideos3BucketName"
+    },
+    "storageVideoDetailsName": {
+      "Type": "String",
+      "Default": "storageVideoDetailsName"
+    },
+    "storageVideoDetailsArn": {
+      "Type": "String",
+      "Default": "storageVideoDetailsArn"
+    },
+    "storageUserDetailsName": {
+      "Type": "String",
+      "Default": "storageUserDetailsName"
+    },
+    "storageUserDetailsArn": {
+      "Type": "String",
+      "Default": "storageUserDetailsArn"
+    },
+    "storageVideoAnalysisDataName": {
+      "Type": "String",
+      "Default": "storageVideoAnalysisDataName"
+    },
+    "storageVideoAnalysisDataArn": {
+      "Type": "String",
+      "Default": "storageVideoAnalysisDataArn"
+    },
+    "storageVideoStudentWatchDetailsName": {
+      "Type": "String",
+      "Default": "storageVideoStudentWatchDetailsName"
+    },
+    "storageVideoStudentWatchDetailsArn": {
+      "Type": "String",
+      "Default": "storageVideoStudentWatchDetailsArn"
+    }
+  },
+  "Conditions": {
+    "ShouldNotCreateEnvResources": {
+      "Fn::Equals": [
+        {
+          "Ref": "env"
+        },
+        "NONE"
+      ]
+    }
+  },
+  "Resources": {
+    "LambdaFunction": {
+      "Type": "AWS::Lambda::Function",
+      "Metadata": {
+        "aws:asset:path": "./src",
+        "aws:asset:property": "Code"
+      },
+      "Properties": {
+        "Code": {
+          "S3Bucket": {
+            "Ref": "deploymentBucketName"
+          },
+          "S3Key": {
+            "Ref": "s3Key"
+          }
+        },
+        "Handler": "index.handler",
+        "FunctionName": {
+          "Fn::If": [
+            "ShouldNotCreateEnvResources",
+            "DeleteLecture",
+            {
+              "Fn::Join": [
+                "",
+                [
+                  "DeleteLecture",
+                  "-",
+                  {
+                    "Ref": "env"
+                  }
+                ]
+              ]
+            }
+          ]
+        },
+        "Environment": {
+          "Variables": {
+            "ENV": {
+              "Ref": "env"
+            },
+            "REGION": {
+              "Ref": "AWS::Region"
+            },
+            "STORAGE_LECTUREVIDEOS3_BUCKETNAME": {
+              "Ref": "storagelecturevideos3BucketName"
+            },
+            "STORAGE_VIDEODETAILS_NAME": {
+              "Ref": "storageVideoDetailsName"
+            },
+            "STORAGE_VIDEODETAILS_ARN": {
+              "Ref": "storageVideoDetailsArn"
+            },
+            "STORAGE_USERDETAILS_NAME": {
+              "Ref": "storageUserDetailsName"
+            },
+            "STORAGE_USERDETAILS_ARN": {
+              "Ref": "storageUserDetailsArn"
+            },
+            "STORAGE_VIDEOANALYSISDATA_NAME": {
+              "Ref": "storageVideoAnalysisDataName"
+            },
+            "STORAGE_VIDEOANALYSISDATA_ARN": {
+              "Ref": "storageVideoAnalysisDataArn"
+            },
+            "STORAGE_VIDEOSTUDENTWATCHDETAILS_NAME": {
+              "Ref": "storageVideoStudentWatchDetailsName"
+            },
+            "STORAGE_VIDEOSTUDENTWATCHDETAILS_ARN": {
+              "Ref": "storageVideoStudentWatchDetailsArn"
+            }
+          }
+        },
+        "Role": {
+          "Fn::GetAtt": [
+            "LambdaExecutionRole",
+            "Arn"
+          ]
+        },
+        "Runtime": "python3.8",
+        "Layers": [],
+        "Timeout": "25"
+      }
+    },
+    "LambdaExecutionRole": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "RoleName": {
+          "Fn::If": [
+            "ShouldNotCreateEnvResources",
+            "intendiLambdaRole57048ab9",
+            {
+              "Fn::Join": [
+                "",
+                [
+                  "intendiLambdaRole57048ab9",
+                  "-",
+                  {
+                    "Ref": "env"
+                  }
+                ]
+              ]
+            }
+          ]
+        },
+        "AssumeRolePolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "Service": [
+                  "lambda.amazonaws.com"
+                ]
+              },
+              "Action": [
+                "sts:AssumeRole"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "lambdaexecutionpolicy": {
+      "DependsOn": [
+        "LambdaExecutionRole"
+      ],
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyName": "lambda-execution-policy",
+        "Roles": [
+          {
+            "Ref": "LambdaExecutionRole"
+          }
+        ],
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Action": [
+                "logs:CreateLogGroup",
+                "logs:CreateLogStream",
+                "logs:PutLogEvents"
+              ],
+              "Resource": {
+                "Fn::Sub": [
+                  "arn:aws:logs:${region}:${account}:log-group:/aws/lambda/${lambda}:log-stream:*",
+                  {
+                    "region": {
+                      "Ref": "AWS::Region"
+                    },
+                    "account": {
+                      "Ref": "AWS::AccountId"
+                    },
+                    "lambda": {
+                      "Ref": "LambdaFunction"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    "AmplifyResourcesPolicy": {
+      "DependsOn": [
+        "LambdaExecutionRole"
+      ],
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyName": "amplify-lambda-execution-policy",
+        "Roles": [
+          {
+            "Ref": "LambdaExecutionRole"
+          }
+        ],
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Action": "s3:ListBucket",
+              "Resource": [
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:aws:s3:::",
+                      {
+                        "Ref": "storagelecturevideos3BucketName"
+                      }
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "Effect": "Allow",
+              "Action": [
+                "s3:GetObject",
+                "s3:DeleteObject"
+              ],
+              "Resource": [
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:aws:s3:::",
+                      {
+                        "Ref": "storagelecturevideos3BucketName"
+                      },
+                      "/*"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "Effect": "Allow",
+              "Action": [
+                "dynamodb:Get*",
+                "dynamodb:BatchGetItem",
+                "dynamodb:List*",
+                "dynamodb:Describe*",
+                "dynamodb:Scan",
+                "dynamodb:Query",
+                "dynamodb:Delete*"
+              ],
+              "Resource": [
+                {
+                  "Ref": "storageVideoDetailsArn"
+                },
+                {
+                  "Fn::Join": [
+                    "/",
+                    [
+                      {
+                        "Ref": "storageVideoDetailsArn"
+                      },
+                      "index/*"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "Effect": "Allow",
+              "Action": [
+                "dynamodb:Get*",
+                "dynamodb:BatchGetItem",
+                "dynamodb:List*",
+                "dynamodb:Describe*",
+                "dynamodb:Scan",
+                "dynamodb:Query",
+                "dynamodb:Delete*"
+              ],
+              "Resource": [
+                {
+                  "Ref": "storageUserDetailsArn"
+                },
+                {
+                  "Fn::Join": [
+                    "/",
+                    [
+                      {
+                        "Ref": "storageUserDetailsArn"
+                      },
+                      "index/*"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "Effect": "Allow",
+              "Action": [
+                "dynamodb:Get*",
+                "dynamodb:BatchGetItem",
+                "dynamodb:List*",
+                "dynamodb:Describe*",
+                "dynamodb:Scan",
+                "dynamodb:Query",
+                "dynamodb:Delete*"
+              ],
+              "Resource": [
+                {
+                  "Ref": "storageVideoAnalysisDataArn"
+                },
+                {
+                  "Fn::Join": [
+                    "/",
+                    [
+                      {
+                        "Ref": "storageVideoAnalysisDataArn"
+                      },
+                      "index/*"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "Effect": "Allow",
+              "Action": [
+                "dynamodb:Get*",
+                "dynamodb:BatchGetItem",
+                "dynamodb:List*",
+                "dynamodb:Describe*",
+                "dynamodb:Scan",
+                "dynamodb:Query"
+              ],
+              "Resource": [
+                {
+                  "Ref": "storageVideoStudentWatchDetailsArn"
+                },
+                {
+                  "Fn::Join": [
+                    "/",
+                    [
+                      {
+                        "Ref": "storageVideoStudentWatchDetailsArn"
+                      },
+                      "index/*"
+                    ]
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  "Outputs": {
+    "Name": {
+      "Value": {
+        "Ref": "LambdaFunction"
+      }
+    },
+    "Arn": {
+      "Value": {
+        "Fn::GetAtt": [
+          "LambdaFunction",
+          "Arn"
+        ]
+      }
+    },
+    "Region": {
+      "Value": {
+        "Ref": "AWS::Region"
+      }
+    },
+    "LambdaExecutionRole": {
+      "Value": {
+        "Ref": "LambdaExecutionRole"
+      }
+    }
+  }
+}

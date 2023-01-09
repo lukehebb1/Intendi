@@ -1,0 +1,267 @@
+@import url(https://allfont.net/allfont.css?fonts=league-spartan);
+.App {
+  text-align: center;
+  
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.category {
+  width: 15%;
+  margin: 0 auto;
+  padding: 1%;
+}
+
+.scrollable-div {
+  overflow: auto;
+  height: 350px;
+}
+
+.AppUpload {
+
+  text-align: center;
+}
+
+.color-nav{
+  /* background: #0c62ab; */
+  background: white;
+  height: 80px;
+  color: #0c62ab;
+  margin: auto;
+
+}
+.brand-style{
+  font-size: xx-large;
+  margin: auto 0;
+  padding-top: 1.5%;
+  padding-bottom: 0%;
+  font-family: 'League Spartan Bold';
+  color: #0c62ab;
+  text-align: center;
+  
+  
+}
+
+.brand-TEXT{
+  font-size:large;
+  font-family: 'League Spartan Bold';
+  text-align: center;
+  padding:70px;
+   
+}
+
+.brand-VIDEOTEXT{
+  font-size:small;
+  font-family: 'League Spartan Bold';
+  text-align: center;
+  padding:1px;
+   
+}
+
+.brand-IMAGE{
+  margin-left: auto;
+  margin-right: auto;
+  padding:60px;
+  width: 110%;
+}
+
+.nav-item{
+  font-family: 'League Spartan Bold';
+  font-weight: bold;
+  color:  #0c62ab !important;
+  
+  
+}
+.nav-item-list{
+  font-family: 'League Spartan Bold';
+  font-weight: bold;
+  color:  #0c62ab !important;
+
+  border-color: black !important;
+  border-radius: 5%;
+  font-size:small;
+
+}
+
+#nav-item{
+  font-weight: bold;
+  color:  #0c62ab !important;
+  
+}
+.nav-logo{
+  padding-top: 9px;
+}
+
+.ModulePageCards {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+#custom-btn {
+  background: white;
+  color:#0c62ab;
+  border: 2px solid #0c62ab;
+  font-weight: bold;
+  font-family: 'League Spartan Bold';
+
+}
+
+#custom-btn:hover {
+  background: #0c62ab;
+  color:white;
+  border: 2px solid #0c62ab;
+  font-weight: bold;
+  font-family: 'League Spartan Bold';
+
+}
+
+#custom-btn-signout {
+  background: inherit;
+  color:#0c62ab;
+  border: 2px solid #0c62ab;
+  font-weight: bold;
+  font-family: 'League Spartan Bold';
+  text-align: center;
+  z-index: 5;
+
+}
+
+#custom-btn-signout:hover {
+  background: red;
+  opacity: 70%;
+  color:white;
+  border: 2px solid #0c62ab;
+  font-weight: bold;
+  font-family: 'League Spartan Bold';
+
+}
+
+#custom-a-label{
+  cursor: pointer;
+  color:#0c62ab;
+}
+
+
+@-webkit-keyframes hvr-pop {
+  50% {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+}
+@keyframes hvr-pop {
+  50% {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+}
+.hvr-pop {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
+.hvr-pop:hover, .hvr-pop:focus, .hvr-pop:active {
+  -webkit-animation-name: hvr-pop;
+  animation-name: hvr-pop;
+  -webkit-animation-duration: 0.3s;
+  animation-duration: 0.3s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+}
+
+.graph-container {
+  display: flex;
+  flex-direction: row;
+}
+
+
+#custom-btn-background {
+  background: inherit;
+  color:#0c62ab;
+  border: 2px solid #0c62ab;
+  font-weight: bold;
+  font-family: 'League Spartan Bold';
+  text-align: center;
+
+
+}
+.nav-logo-line{
+  background-image: url(images/Navbarcolourblock2crop.png);
+  background-repeat:repeat-x;
+  background-size: 50%;
+  height: 48px;
+  width: 100%;
+
+
+}
+
+.navbar-nav{
+  float: right!important;
+
+}
+
+@font-face {
+  font-family: 'Pacifico';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Pacifico Regular'), local('Pacifico-Regular'), url(https://fonts.gstatic.com/s/pacifico/v12/FwZY7-Qmy14u9lezJ-6H6MmBp0u-.woff2) format('woff2');
+  font-display: swap;
+}
+
+@media only screen and (max-width:1000px){
+  div.m-auto.navbar-nav{
+    border: 2px solid black;
+    border-radius: 5%;
+    background-color: white;
+    
+
+  }
+
+  div.navbarDiv{
+    position: fixed;
+    top: 0;
+    padding:0;
+    
+
+  }
+
+  
+
+  
+}

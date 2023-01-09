@@ -1,0 +1,5 @@
+{
+    "tableName": "VideoDetails",
+    "partitionKeyName": "VideoID",
+    "partitionKeyType": "S"
+}

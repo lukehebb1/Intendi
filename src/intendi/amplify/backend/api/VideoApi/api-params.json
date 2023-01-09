@@ -1,0 +1,334 @@
+{
+    "paths": [
+        {
+            "name": "/video",
+            "lambdaFunction": "Uploadvideo",
+            "privacy": {
+                "protected": true,
+                "auth": [
+                    "/POST",
+                    "/GET",
+                    "/PUT",
+                    "/PATCH",
+                    "/DELETE"
+                ],
+                "unauth": [
+                    "/POST",
+                    "/GET",
+                    "/PUT",
+                    "/PATCH",
+                    "/DELETE"
+                ]
+            },
+            "policyResourceName": "/video"
+        },
+        {
+            "name": "/usermodule",
+            "lambdaFunction": "AddmoduleToUser",
+            "privacy": {
+                "private": true,
+                "auth": [
+                    "/POST",
+                    "/GET",
+                    "/PUT",
+                    "/PATCH",
+                    "/DELETE"
+                ]
+            },
+            "policyResourceName": "/usermodule"
+        },
+        {
+            "name": "/getmodules",
+            "lambdaFunction": "GetUserModules",
+            "privacy": {
+                "private": true,
+                "auth": [
+                    "/POST",
+                    "/GET",
+                    "/PUT",
+                    "/PATCH",
+                    "/DELETE"
+                ]
+            },
+            "policyResourceName": "/getmodules"
+        },
+        {
+            "name": "/studentjoin",
+            "lambdaFunction": "studentModuleJoin",
+            "privacy": {
+                "private": true,
+                "auth": [
+                    "/POST",
+                    "/GET",
+                    "/PUT",
+                    "/PATCH",
+                    "/DELETE"
+                ]
+            },
+            "policyResourceName": "/studentjoin"
+        },
+        {
+            "name": "/getvidinfo",
+            "lambdaFunction": "GetModuleVideos",
+            "privacy": {
+                "private": true,
+                "auth": [
+                    "/POST",
+                    "/GET",
+                    "/PUT",
+                    "/PATCH",
+                    "/DELETE"
+                ]
+            },
+            "policyResourceName": "/getvidinfo"
+        },
+        {
+            "name": "/ScreenshotUpload",
+            "lambdaFunction": "FaceAnalysis",
+            "privacy": {
+                "private": true,
+                "auth": [
+                    "/POST",
+                    "/GET",
+                    "/PUT",
+                    "/PATCH",
+                    "/DELETE"
+                ]
+            },
+            "policyResourceName": "/ScreenshotUpload"
+        },
+        {
+            "name": "/FaceDataRetrieve",
+            "lambdaFunction": "FaceDataRetrieveLambda",
+            "privacy": {
+                "private": true,
+                "auth": [
+                    "/POST",
+                    "/GET",
+                    "/PUT",
+                    "/PATCH",
+                    "/DELETE"
+                ]
+            },
+            "policyResourceName": "/FaceDataRetrieve"
+        },
+        {
+            "name": "/studentwatchcount",
+            "lambdaFunction": "studentwatchcount",
+            "privacy": {
+                "private": true,
+                "auth": [
+                    "/POST",
+                    "/GET",
+                    "/PUT",
+                    "/PATCH",
+                    "/DELETE"
+                ]
+            },
+            "policyResourceName": "/studentwatchcount"
+        },
+        {
+            "name": "/watchtime",
+            "lambdaFunction": "sendwatchtime",
+            "privacy": {
+                "private": true,
+                "auth": [
+                    "/POST",
+                    "/GET",
+                    "/PUT",
+                    "/PATCH",
+                    "/DELETE"
+                ]
+            },
+            "policyResourceName": "/watchtime"
+        },
+        {
+            "name": "/submitrating",
+            "lambdaFunction": "ratingSubmit",
+            "privacy": {
+                "private": true,
+                "auth": [
+                    "/GET",
+                    "/PUT",
+                    "/PATCH"
+                ]
+            },
+            "policyResourceName": "/submitrating"
+        },
+        {
+            "name": "/deletelecture",
+            "lambdaFunction": "DeleteLecture",
+            "privacy": {
+                "private": true,
+                "auth": [
+                    "/POST",
+                    "/GET",
+                    "/PUT",
+                    "/PATCH",
+                    "/DELETE"
+                ]
+            },
+            "policyResourceName": "/deletelecture"
+        },
+        {
+            "name": "/deletemodule",
+            "lambdaFunction": "deletemodule",
+            "privacy": {
+                "private": true,
+                "auth": [
+                    "/POST",
+                    "/GET",
+                    "/PUT",
+                    "/PATCH",
+                    "/DELETE"
+                ]
+            },
+            "policyResourceName": "/deletemodule"
+        }
+    ],
+    "resourceName": "VideoApi",
+    "apiName": "VideoApi",
+    "functionArns": [
+        {
+            "lambdaFunction": "Uploadvideo"
+        },
+        {
+            "lambdaFunction": "AddmoduleToUser"
+        },
+        {
+            "lambdaFunction": "GetUserModules"
+        },
+        {
+            "lambdaFunction": "studentModuleJoin"
+        },
+        {
+            "lambdaFunction": "GetModuleVideos"
+        },
+        {
+            "lambdaFunction": "FaceAnalysis"
+        },
+        {
+            "lambdaFunction": "FaceDataRetrieveLambda"
+        },
+        {
+            "lambdaFunction": "studentwatchcount"
+        },
+        {
+            "lambdaFunction": "sendwatchtime"
+        },
+        {
+            "lambdaFunction": "ratingSubmit"
+        },
+        {
+            "lambdaFunction": "DeleteLecture"
+        },
+        {
+            "lambdaFunction": "deletemodule"
+        }
+    ],
+    "privacy": {
+        "auth": 12,
+        "unauth": 1,
+        "authRoleName": "amplify-intendi-intendinew-132409-authRole",
+        "unAuthRoleName": "amplify-intendi-intendinew-132409-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "Uploadvideo",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        },
+        {
+            "category": "function",
+            "resourceName": "AddmoduleToUser",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        },
+        {
+            "category": "function",
+            "resourceName": "GetUserModules",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        },
+        {
+            "category": "function",
+            "resourceName": "studentModuleJoin",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        },
+        {
+            "category": "function",
+            "resourceName": "GetModuleVideos",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        },
+        {
+            "category": "function",
+            "resourceName": "FaceAnalysis",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        },
+        {
+            "category": "function",
+            "resourceName": "FaceDataRetrieveLambda",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        },
+        {
+            "category": "function",
+            "resourceName": "studentwatchcount",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        },
+        {
+            "category": "function",
+            "resourceName": "sendwatchtime",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        },
+        {
+            "category": "function",
+            "resourceName": "ratingSubmit",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        },
+        {
+            "category": "function",
+            "resourceName": "DeleteLecture",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        },
+        {
+            "category": "function",
+            "resourceName": "deletemodule",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ],
+    "uuid": "eea93c19"
+}

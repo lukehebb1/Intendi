@@ -1,0 +1,96 @@
+{
+  "intendinew": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-intendi-intendinew-132409-authRole",
+      "UnauthRoleArn": "arn:aws:iam::917841937620:role/amplify-intendi-intendinew-132409-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::917841937620:role/amplify-intendi-intendinew-132409-authRole",
+      "Region": "eu-west-1",
+      "DeploymentBucketName": "amplify-intendi-intendinew-132409-deployment",
+      "UnauthRoleName": "amplify-intendi-intendinew-132409-unauthRole",
+      "StackName": "amplify-intendi-intendinew-132409",
+      "StackId": "arn:aws:cloudformation:eu-west-1:917841937620:stack/amplify-intendi-intendinew-132409/48969490-5410-11eb-bc21-0af128d4b3c0",
+      "AmplifyAppId": "d1og3wjhlw37s3"
+    },
+    "categories": {
+      "auth": {
+        "intendidf697fef": {}
+      },
+      "function": {
+        "intendidf697fefPostConfirmation": {
+          "deploymentBucketName": "amplify-intendi-intendinew-132409-deployment",
+          "s3Key": "amplify-builds/intendidf697fefPostConfirmation-4377373367786c726458-build.zip"
+        },
+        "FaceDataRetrieveLambda": {
+          "deploymentBucketName": "amplify-intendi-intendinew-132409-deployment",
+          "s3Key": "amplify-builds/FaceDataRetrieveLambda-70576e41784365524847-build.zip"
+        },
+        "AddmoduleToUser": {
+          "deploymentBucketName": "amplify-intendi-intendinew-132409-deployment",
+          "s3Key": "amplify-builds/AddmoduleToUser-5876787a79744633526c-build.zip"
+        },
+        "studentModuleJoin": {
+          "deploymentBucketName": "amplify-intendi-intendinew-132409-deployment",
+          "s3Key": "amplify-builds/studentModuleJoin-55366e506f68332f734b-build.zip"
+        },
+        "Uploadvideo": {
+          "deploymentBucketName": "amplify-intendi-intendinew-132409-deployment",
+          "s3Key": "amplify-builds/Uploadvideo-33704a68717242717146-build.zip"
+        },
+        "studentwatchcount": {
+          "deploymentBucketName": "amplify-intendi-intendinew-132409-deployment",
+          "s3Key": "amplify-builds/studentwatchcount-52656c6573315945456c-build.zip"
+        },
+        "GetModuleVideos": {
+          "deploymentBucketName": "amplify-intendi-intendinew-132409-deployment",
+          "s3Key": "amplify-builds/GetModuleVideos-386c394e647053386b32-build.zip"
+        },
+        "sendwatchtime": {
+          "deploymentBucketName": "amplify-intendi-intendinew-132409-deployment",
+          "s3Key": "amplify-builds/sendwatchtime-3956766e786e2f456333-build.zip"
+        },
+        "FaceAnalysis": {
+          "deploymentBucketName": "amplify-intendi-intendinew-132409-deployment",
+          "s3Key": "amplify-builds/FaceAnalysis-64776679763679446178-build.zip"
+        },
+        "S3Triggerf4d5bda2": {
+          "deploymentBucketName": "amplify-intendi-intendinew-132409-deployment",
+          "s3Key": "amplify-builds/S3Triggerf4d5bda2-42446967597330326b37-build.zip"
+        },
+        "ratingSubmit": {
+          "deploymentBucketName": "amplify-intendi-intendinew-132409-deployment",
+          "s3Key": "amplify-builds/ratingSubmit-4d4b71616c417671436e-build.zip"
+        },
+        "DeleteLecture": {
+          "deploymentBucketName": "amplify-intendi-intendinew-132409-deployment",
+          "s3Key": "amplify-builds/DeleteLecture-77544b4272527a4b634b-build.zip"
+        },
+        "GetUserModules": {
+          "deploymentBucketName": "amplify-intendi-intendinew-132409-deployment",
+          "s3Key": "amplify-builds/GetUserModules-552b524d56345144534f-build.zip"
+        },
+        "deletemodule": {
+          "deploymentBucketName": "amplify-intendi-intendinew-132409-deployment",
+          "s3Key": "amplify-builds/deletemodule-746d6846633531736a63-build.zip"
+        }
+      }
+    }
+  },
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-intendi-dev-174004-authRole",
+      "UnauthRoleArn": "arn:aws:iam::917841937620:role/amplify-intendi-dev-174004-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::917841937620:role/amplify-intendi-dev-174004-authRole",
+      "Region": "eu-west-1",
+      "DeploymentBucketName": "amplify-intendi-dev-174004-deployment",
+      "UnauthRoleName": "amplify-intendi-dev-174004-unauthRole",
+      "StackName": "amplify-intendi-dev-174004",
+      "StackId": "arn:aws:cloudformation:eu-west-1:917841937620:stack/amplify-intendi-dev-174004/f13da190-1f8d-11eb-b371-02f3dbe19fbb",
+      "AmplifyAppId": "d1og3wjhlw37s3"
+    },
+    "categories": {
+      "auth": {
+        "intendidf697fef": {}
+      }
+    }
+  }
+}
